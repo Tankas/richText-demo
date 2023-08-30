@@ -2,7 +2,7 @@
  * @Author: tanka 
  * @Date: 2023-08-30 10:33:32
  * @LastEditors: tanka 
- * @LastEditTime: 2023-08-30 16:51:46
+ * @LastEditTime: 2023-08-30 16:58:47
  * @FilePath: /richText-demo/src/pages/Home/index.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -60,8 +60,10 @@ const HomePage: React.FC = () => {
   const transform = () => {
     const content = leftEditorInstanceRef.current.getContents();
     const contentStr = JSON.stringify(content);
+    // content 传给后端的数据
+    console.error('传给后端的数据')
     console.log(content)
-    // 自定义数据结构
+    // dataStr 转换后的数据
     const dataStr = getAiContent()
     setAiContent(dataStr)
   }
@@ -85,7 +87,9 @@ const HomePage: React.FC = () => {
             aiContent ? 
             <Editor content={aiContent} completed={completedRight} id={'digua-2'} ></Editor> : null
           }
-          <Button type="primary" onClick={saveData} >保存数据</Button>
+          {
+            aiContent ? <Button type="primary" onClick={saveData} >查看保存数据</Button> : null
+          }
         </Col>
         <Col span={8}>
           哈哈哈

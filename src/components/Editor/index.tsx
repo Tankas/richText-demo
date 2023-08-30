@@ -2,7 +2,7 @@
  * @Author: tanka 
  * @Date: 2023-08-30 10:56:02
  * @LastEditors: tanka 
- * @LastEditTime: 2023-08-30 16:50:12
+ * @LastEditTime: 2023-08-30 17:01:55
  * @FilePath: /richText-demo/src/components/Editor/index.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -66,7 +66,7 @@ const Editor: React.FC<IProps> = (props) => {
       return;
     }
     try {
-      console.log('回显数据结构');
+      console.log('后端返回转换后的数据');
       console.log(JSON.parse(content))
       quill.setContents(JSON.parse(content));
     } catch (err) {
